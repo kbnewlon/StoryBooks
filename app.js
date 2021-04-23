@@ -7,8 +7,12 @@ const morgan = require('morgan')
 const session = require('express-session')
 const connectDB = require('./config/db');
 
+//left off at 55:06
+//https://youtu.be/SBvmnHTQIPY
+//Cannot GET /auth/google
+
 //Load config
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './config/config.env' });
 
 // Passport config
 require('./config/passport')(passport)
@@ -34,8 +38,8 @@ app.use(session({
 }))
 
 // Passport Middleware
-app.use(passport.initialize)
-app.use(passport.session)
+app.use(passport.initialize())
+app.use(passport.session())
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')))
