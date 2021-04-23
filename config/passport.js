@@ -17,7 +17,7 @@ module.exports = function (passport) {
                 lastName: profile.name.familyName,
                 image: profile.photos[0].value
             }
-            //able to log in to google and push profile info to db
+            //able to login to google and push profile info to db
             try {
                 let user = await User.findOne({ googleId: profile.id })
                 if (user) {
