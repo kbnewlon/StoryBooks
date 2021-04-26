@@ -1,15 +1,17 @@
-const path = require('path')
+const path = require('path');
 const express = require('express');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const exphbs = require('express-handlebars')
-const passport = require('passport')
-const morgan = require('morgan')
-const session = require('express-session')
+const exphbs = require('express-handlebars');
+const passport = require('passport');
+const morgan = require('morgan');
+const session = require('express-session');
+const MongoDbStore = require('connect-mongo')
 const connectDB = require('./config/db');
 
-//left off at 55:06
+//left off at 1:10:35
 //https://youtu.be/SBvmnHTQIPY
-//Cannot GET /auth/google
+
 
 //Load config
 dotenv.config({ path: './config/config.env' });
@@ -31,11 +33,17 @@ app.set('view engine', '.hbs');
 
 
 // Sessions Middleware
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
-}))
+app.use(
+  session({
+      secret: 'story book',
+      resave: false,
+      saveUninitialized: false,
+      store: MongoDbStore.create({
+          mongoUrl: process.env.MONGO_URI
+      })
+  })
+);
+
 
 // Passport Middleware
 app.use(passport.initialize())
