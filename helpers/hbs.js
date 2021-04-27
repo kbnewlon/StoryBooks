@@ -28,6 +28,7 @@ module.exports = {
             return ''
         }
     },
+    // How to select in handlebars
     select: function (selected, options) {
         return options
             .fn(this)
