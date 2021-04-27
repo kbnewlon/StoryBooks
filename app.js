@@ -34,10 +34,17 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Handlebars Helpers
-const { formatDate } = require('./helpers/hbs')
+const { formatDate, truncate, stripTags, editIcon, select  } = require('./helpers/hbs')
 
 //Handlebars Middleware
-app.engine('.hbs', exphbs({ helpers:{ formatDate },defaultLayout: 'main', extname: '.hbs' }));
+app.engine('.hbs', exphbs({ helpers:{ 
+    formatDate,
+    truncate, 
+    stripTags, 
+    editIcon, 
+    select
+},
+defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
 
@@ -57,6 +64,13 @@ app.use(
 // Passport Middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
+//Set global variable to access user within stories template
+app.use(function(req, res, next){
+    res.locals.user = req.user || null
+    next()
+})
+
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')))
