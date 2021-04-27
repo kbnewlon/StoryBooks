@@ -2,11 +2,9 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/kbnewlon/StoryBooks) ![Libraries.io dependency status for GitHub repo](https://img.shields.io/badge/license-MIT_License-yellowgreen)
 
 ## Description
-Create public and private stories from your life
-
-This app uses Node.js/Express/MongoDB with Google OAuth for authentication
-
-Link to deployed application: 
+Create public and private stories from your life. This app uses Node.js/Express/MongoDB with Google OAuth for authentication
+<br>
+Link to deployed application: https://kbn-storybooks.herokuapp.com/
 
 ## **Table of Contents**
 
@@ -72,4 +70,4 @@ Contact me at kayla.b.newlon@gmail.com for any questions
 Traversy Media Tutorail: https://youtu.be/SBvmnHTQIPY
 <br>
 Repo: https://github.com/kbnewlon/StoryBooks
-<br>Deployed Application on Heroku: 
+<br>Deployed Application on Heroku: https://kbn-storybooks.herokuapp.com/
