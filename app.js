@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoDbStore = require('connect-mongo')
 const connectDB = require('./config/db');
 
-//left off at 
+//left off at 1:24:35
 //https://youtu.be/SBvmnHTQIPY
 
 
@@ -23,6 +23,12 @@ connectDB();
 
 const app = express();
 
+// Body parser
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+
+
+//Logging
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
