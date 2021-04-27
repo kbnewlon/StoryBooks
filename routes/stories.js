@@ -62,7 +62,6 @@ router.get('/:id', ensureAuth, async (req, res) => {
 })
 
 
-
 //Show edit page
 //Route GET /stories/edit/:id
 router.get('/edit/:id', ensureAuth, async (req, res) => {
@@ -117,6 +116,27 @@ router.delete('/:id', ensureAuth, async (req, res) => {
     try {
         await Story.remove({ _id: req.params.id })
         res.redirect('/dashboard')
+    } catch (err) {
+        console.error(err)
+        return res.render('error/500')
+    }
+})
+
+
+//Show User stories
+//Route GET /stories/user/:userId
+router.get('/user/:userId', ensureAuth, async (req, res) => {
+    try {
+        const stories = await Story.find({
+            user: req.params.userId,
+            status: 'public'
+        })
+        .populate('user')
+        .lean()
+
+        res.render('stories/index', {
+            stories
+        })
     } catch (err) {
         console.error(err)
         return res.render('error/500')

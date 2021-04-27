@@ -1,5 +1,5 @@
 p {
-   margin: 10px 0 important !important;
+   margin: 10px 0 !important;
 }
 
 .login-container{
@@ -15,4 +15,8 @@ p {
 .btn-float{
     float: left;
     margin-right: 10px;
+}
+
+.img-small{
+    width: 180px;
 }
