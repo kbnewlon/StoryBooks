@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoDbStore = require('connect-mongo')
 const connectDB = require('./config/db');
 
-//left off at 1:10:35
+//left off at 
 //https://youtu.be/SBvmnHTQIPY
 
 
